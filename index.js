@@ -5,6 +5,7 @@ import eventModel from "./src/models/event.js";
 import { message } from "telegraf/filters";
 import OpenAI from "openai";
 import dotenv from "dotenv";
+import connectToDatabase from "./src/config/db.js";
 
 dotenv.config();
 
@@ -16,11 +17,8 @@ const bot = new Telegraf(process.env.TELEGRAM_BOT_API_TOKEN);
 const openai = new OpenAI({  
   apiKey: process.env["OPENAI_API_KEY"], // This is the default and can be omitted
 });
-try { 
-  connectdb();
-} catch (err) {
-  process.kill(process.pid, "SIGTERM");
-}
+
+connectToDatabase();
 
 
 
