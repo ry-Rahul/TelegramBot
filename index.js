@@ -4,6 +4,10 @@ import connectdb from "./src/config/db.js";
 import eventModel from "./src/models/event.js";
 import { message } from "telegraf/filters";
 import OpenAI from "openai";
+import dotenv from "dotenv";
+
+dotenv.config();
+
 
  
 
